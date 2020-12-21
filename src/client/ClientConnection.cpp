@@ -98,7 +98,7 @@ void ClientConnection::read_header() {
                        << " type: " << (int)me->buffer.header.type
                        << " payload_size: " << me->buffer.header.payload_size;
 
-             if (me->buffer.header.sequence_number != me->recv_sequence_number) {
+             if (me->buffer.header.sequence_number != me->recv_sequence_number + 1) {
                 LOG(error) << "Expected message with sequence number " << me->recv_sequence_number +1
                            << " but received " << me->buffer.header.sequence_number
                            << " type: " << (int)me->buffer.header.type
